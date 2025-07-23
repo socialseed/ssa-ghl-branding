@@ -3,45 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <title>SSA Branding Loader</title>
-  <style>
-    /* SSA Branding Styles */
-    .sidebar, .left-sidebar {
-      background-color: #1A6D40 !important;
+  <script>
+    // Wait until the DOM is ready, then inject styles into the parent GHL window
+    function injectSSAStyles() {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .sidebar, .left-sidebar {
+          background-color: #1A6D40 !important;
+        }
+        .topbar {
+          background-color: #1A6D40 !important;
+        }
+        .sidebar .menu-item,
+        .sidebar .menu-item .title,
+        .sidebar .menu-item .icon {
+          color: #ffffff !important;
+        }
+        .sidebar .menu-item.active,
+        .sidebar .menu-item:hover {
+          background-color: #4CAF50 !important;
+          color: #ffffff !important;
+        }
+        .button-primary,
+        button.primary,
+        .btn.btn-primary {
+          background-color: #4CAF50 !important;
+          border-color: #4CAF50 !important;
+          color: #ffffff !important;
+        }
+        .button-primary:hover,
+        button.primary:hover,
+        .btn.btn-primary:hover {
+          background-color: #43A047 !important;
+          border-color: #43A047 !important;
+        }
+      `;
+      document.head.appendChild(style);
     }
 
-    .topbar {
-      background-color: #1A6D40 !important;
-    }
-
-    .sidebar .menu-item,
-    .sidebar .menu-item .title,
-    .sidebar .menu-item .icon {
-      color: #ffffff !important;
-    }
-
-    .sidebar .menu-item.active,
-    .sidebar .menu-item:hover {
-      background-color: #4CAF50 !important;
-      color: #ffffff !important;
-    }
-
-    .button-primary,
-    button.primary,
-    .btn.btn-primary {
-      background-color: #4CAF50 !important;
-      border-color: #4CAF50 !important;
-      color: #ffffff !important;
-    }
-
-    .button-primary:hover,
-    button.primary:hover,
-    .btn.btn-primary:hover {
-      background-color: #43A047 !important;
-      border-color: #43A047 !important;
-    }
-  </style>
+    // Wait a bit to make sure GHL has loaded
+    setTimeout(injectSSAStyles, 1000);
+  </script>
 </head>
 <body>
-<!-- Silent styling loader for SSA GHL accounts -->
+  <p style="color: #888; font-family: sans-serif; text-align: center; padding-top: 30px;">
+    SSA branding styles loaded. You can now refresh the dashboard.
+  </p>
 </body>
 </html>
